@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Firetrial Films</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: white;
+      font-family: Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      letter-spacing: 3px;
+    }
+    h1 {
+      font-weight: 300;
+      font-size: 2rem;
+      animation: flicker 3s infinite;
+    }
+    p {
+      opacity: 0.5;
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>FIRE TRIAL FILMS</h1>
+    <p>A full-service 35mm and 16mm production company creating gripping feature film and short form content. </p>
+  </div>
+</body>
+</html>
