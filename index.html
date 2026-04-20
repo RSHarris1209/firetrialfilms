@@ -28,7 +28,7 @@
   /* CONTENT WRAPPER (moved upward) */
   .container {
     position: absolute;
-    top: 18%; /* moves content higher */
+    top: 12%; /* moves content higher */
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -37,13 +37,14 @@
   }
 
   /* LOGO */
-  .logo {
-    width: 320px;
-    max-width: 80vw;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: fadeIn 2s ease forwards;
-  }
+.logo {
+  width: 60vw;        /* responsive, scales with screen */
+  max-width: 900px;   /* prevents it from becoming absurdly large */
+  min-width: 420px;   /* prevents it from becoming tiny */
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
 
   p {
     font-size: 1rem;
