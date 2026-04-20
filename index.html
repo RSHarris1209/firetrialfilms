@@ -63,12 +63,18 @@
     border: none;
   }
 
-.poster-grid {
-  display: grid;
+.poster-grid a {
+  display: block;
+  transition: 0.3s ease;
+}
+
+.poster-grid a:hover {
+  transform: scale(1.02);
+}
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 
-  max-width: 600px;
+  max-width: 800px;
   margin: 40px auto 80px;
   padding: 0 20px;
 }
@@ -166,9 +172,15 @@
 <!-- POSTER GRID -->
 <div class="poster-grid">
 
-  <img src="assets/images/MOON_GARDEN_Poster.jpg">
-  <img src="assets/images/FS_Poster_v03.jpg">
-  <img src="assets/images/Finale_Poster_for_Web.png">
+  <a href="https://www.imdb.com/title/tt18561446/" target="_blank">
+    <img src="assets/images/MOON_GARDEN_Poster.jpg" alt="Moon Garden">
+  </a>
+
+    <img src="assets/images/FS_Poster_v03.jpg" alt="Film 2">
+
+  <a href="https://www.imdb.com/title/tt1326218/" target="_blank">
+    <img src="assets/images/Finale_Poster_for_Web.png" alt="Finale">
+  </a>
 
 </div>
   
