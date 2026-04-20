@@ -41,11 +41,11 @@
   }
 
   /* VIDEO SECTION (NO LONGER FULL SCREEN) */
-  .video-section {
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px 20px;
-  }
+.video-section {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px 10px; /* tighter vertical spacing */
+}
 
 .video-wrapper {
   width: 80%;
@@ -63,6 +63,33 @@
     border: none;
   }
 
+.poster-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+
+  max-width: 1000px;
+  margin: 60px auto 80px;
+  padding: 0 20px;
+}
+
+.poster-grid img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+
+  border: 1px solid #222;
+  transition: 0.25s ease;
+
+  filter: contrast(1.05) brightness(0.95);
+}
+
+.poster-grid img:hover {
+  transform: scale(1.02);
+  border-color: #5a0b0b;
+  box-shadow: 0 0 25px rgba(90, 11, 11, 0.25);
+}
+  
   /* CONTACT */
   .contact {
     text-align: center;
@@ -134,6 +161,16 @@
       allow="autoplay; fullscreen">
     </iframe>
   </div>
+
+  <!-- POSTER GRID -->
+<div class="poster-grid">
+
+  <img src="assets/images/MOON_GARDEN_Poster.jpg">
+  <img src="assets/images/FS_Poster_v03.jpg">
+  <img src="assets/images/Finale_Poster_for_Web.png">
+
+</div>
+  
 </div>
 
 <!-- CONTACT -->
