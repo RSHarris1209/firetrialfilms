@@ -9,83 +9,129 @@
     margin: 0;
     height: 100vh;
     background: #050505;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-family: Helvetica, Arial, sans-serif;
-    text-align: center;
     color: #d6d6d6;
+    overflow: hidden;
   }
 
-  .container {
-    max-width: 800px;
-    padding: 40px;
-  }
-
-  h1 {
-    margin: 0;
-    font-size: 3rem;
-    font-weight: 300;
-    letter-spacing: 6px;
-    color: #5a0b0b; /* dark elegant red */
-  }
-
-  p {
-    margin-top: 20px;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #9a9a9a;
-    letter-spacing: 1px;
-  }
-
-  /* optional subtle fade-in */
-  h1, p {
-    opacity: 0;
-    animation: fadeIn 2s ease forwards;
-  }
-
-  p {
-    animation-delay: 0.8s;
-  }
-
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-
-  /* optional video layer */
+  /* VIDEO BACKGROUND */
   .video-bg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.25;
     z-index: -1;
+    opacity: 1; /* fully bright now */
+  }
+
+  /* CONTENT WRAPPER (moved upward) */
+  .container {
+    position: absolute;
+    top: 18%; /* moves content higher */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    max-width: 900px;
+    padding: 40px;
+  }
+
+  /* LOGO */
+  .logo {
+    width: 320px;
+    max-width: 80vw;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #9a9a9a;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards;
+    animation-delay: 0.6s;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+  /* AUDIO BUTTON */
+  .audio-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: rgba(10,10,10,0.7);
+    border: 1px solid #333;
+    color: #ddd;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 12px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: 0.3s;
+  }
+
+  .audio-btn:hover {
+    background: rgba(80,0,0,0.6);
   }
 </style>
+
 </head>
 
 <body>
 
-<!-- OPTIONAL VIMEO BACKGROUND -->
+<!-- VIMEO BACKGROUND -->
 <div class="video-bg">
-  <iframe 
+  <iframe
+    id="vimeoPlayer"
     src="https://player.vimeo.com/video/1141841311?background=1&autoplay=1&loop=1&muted=1"
-    width="100%" 
-    height="100%" 
-    frameborder="0" 
+    width="100%"
+    height="100%"
+    frameborder="0"
     allow="autoplay; fullscreen">
   </iframe>
 </div>
 
+<!-- CONTENT -->
 <div class="container">
-  <h1>FIRE TRIAL FILMS</h1>
+
+  <!-- LOGO (replace src with your actual file path) -->
+  <img class="logo" src="FT_Name_Only_ALPHA_v03.png" alt="Fire Trial Films Logo">
 
   <p>
     A full-service 35mm and 16mm production company creating
-    gripping feature film and short form content.
+    gripping feature film and short form content
   </p>
+
 </div>
+
+<!-- AUDIO BUTTON -->
+<button class="audio-btn" id="audioToggle">UNMUTE</button>
+
+<!-- VIMEO API -->
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+  const iframe = document.getElementById('vimeoPlayer');
+  const player = new Vimeo.Player(iframe);
+  const btn = document.getElementById('audioToggle');
+
+  let isMuted = true;
+
+  btn.addEventListener('click', async () => {
+    if (isMuted) {
+      await player.setMuted(false);
+      btn.textContent = "MUTE";
+    } else {
+      await player.setMuted(true);
+      btn.textContent = "UNMUTE";
+    }
+    isMuted = !isMuted;
+  });
+</script>
 
 </body>
 </html>
